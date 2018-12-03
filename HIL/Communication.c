@@ -2,7 +2,7 @@
  * Communication.c
  *
  *  Created on: 15/10/2018
- *      Author: Enrique Martinez Salas y Daniel Coppel Vizcarra
+ *      Author: kikia
  */
 
 

@@ -35,25 +35,49 @@
 /* TODO: insert other include files here. */
 #include "DirAndLightsDriver.h"
 #include "Communication.h"
+#include "SensorDriver.h"
 /* TODO: insert other definitions and declarations here. */
 
 /*
  * @brief   Application entry point.
  */
 
-uint_8 num;
-
 int main(void) {
+	uint_8 num;
+	uint_8 sensor;
 	vfnInitDirAndLightsDriver();
+	Sensor_vfnDriverInit();
 	COMM_vfnDriverInit();
     while(1) {
-    	if(COMM_bfnReceiveMsg(&num)){
-    		if(num<=52){
-    		    vfnMoveDirection(num);
-    	 	}else{
-    			vfnTurnLights(num);
-    	 	}
-    	}
+    	if(Sensor_bfnGetIn(&sensor)== 255){
+    		if(COMM_bfnReceiveMsg(&num)){
+    			if(num<=stop){
+    				vfnMoveDirection(num);
+    			}else{
+    				vfnTurnLights(num);
+    			}
+    		}
+
+    	}else{
+    		if(COMM_bfnReceiveMsg(&num)){
+    			switch(num){
+    			case down:
+					vfnMoveDirection(num);
+    				if(pitFlag){
+    					pitFlag = 0;
+    				}
+    				break;
+    			case off:
+    				vfnTurnLights(num);
+    				break;
+    			case on:
+    				vfnTurnLights(num);
+       				break;
+    			}
+    		}else{
+			vfnMoveDirection(stop);
+    		}
+		}
     }
     return 0 ;
 }

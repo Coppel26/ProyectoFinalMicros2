@@ -2,7 +2,7 @@
  * DirAndLightsDriver.h
  *
  *  Created on: 23/11/2018
- *      Author: Enrique Martinez Salas y Daniel Coppel Vizcarra
+ *      Author: kikia
  */
 
 #ifndef HIL_DIRANDLIGHTSDRIVER_H_

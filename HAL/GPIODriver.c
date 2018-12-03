@@ -15,19 +15,16 @@
 void vfnInitGPIODriver(){
 	SIM -> SCGC5 |= SIM_SCGC5_PORTB_MASK;
 	SIM -> SCGC5 |= SIM_SCGC5_PORTC_MASK;
-	SIM -> SCGC5 |= SIM_SCGC5_PORTD_MASK;
 
 	for(int i=0; i<=3;i++){
 		PORTB -> PCR[i] |= PORT_PCR_MUX(1);
 		GPIOB -> PDDR |= (1<<i);
-		PORTD -> PCR[i] |= PORT_PCR_MUX(1);
-		GPIOD -> PDDR |= (1<<i);
+
 	}
 
 	PORTC -> PCR[1] |= PORT_PCR_MUX(1);
 	GPIOC -> PDDR |= (1<<1);
 
-	GPIOD->PDOR |= (1<<1);
 }
 
 void vfnSetDir(uint_8 dir){

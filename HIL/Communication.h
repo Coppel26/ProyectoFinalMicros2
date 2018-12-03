@@ -2,7 +2,7 @@
  * Communication.h
  *
  *  Created on: 15/10/2018
- *      Author: Enrique Martinez Salas y Daniel Coppel Vizcarra
+ *      Author: kikia
  */
 
 #ifndef HIL_COMMUNICATION_H_
